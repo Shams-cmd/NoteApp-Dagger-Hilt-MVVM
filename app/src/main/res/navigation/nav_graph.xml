@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/registerFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.noteapp.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_noteFragments"
+            app:destination="@id/noteFragments" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/registerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.noteapp.ui.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_noteFragments2"
+            app:destination="@id/noteFragments" />
+        <action
+            android:id="@+id/action_registerFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/registerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.noteapp.ui.MainFragment"
+        android:label="fragment_main"
+        app:popUpTo="@id/registerFragment"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_noteFragments"
+            app:destination="@id/noteFragments" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteFragments"
+        android:name="com.example.noteapp.ui.NoteFragments"
+        android:label="fragment_note_fragments"
+        tools:layout="@layout/fragment_note_fragments" >
+        <action
+            android:id="@+id/action_noteFragments_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+</navigation>
